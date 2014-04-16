@@ -9,6 +9,7 @@
 #import "CADViewController.h"
 
 #import "CADSampleCell.h"
+#import <ReactiveCocoa/RACSignal+Operations.h>
 
 static NSString *const kReuseIdentifier = @"ReuseIdentifier";
 
@@ -47,6 +48,16 @@ static NSString *const kReuseIdentifier = @"ReuseIdentifier";
     cell.allowedDirection = arc4random_uniform(2);
     cell.revealView = bottomView;
     cell.text = cell.allowedDirection == CADRACSwippeableCellAllowedDirectionRight ? @"Right" : @"Left";
+    [[cell.revealViewSignal filter:^BOOL(NSNumber *isRevealed) {
+        return [isRevealed boolValue];
+    }] subscribeNext:^(id x) {
+        [[self.collectionView visibleCells] enumerateObjectsUsingBlock:^(CADSampleCell *otherCell, NSUInteger idx, BOOL *stop) {
+            if (otherCell != cell)
+            {
+                [otherCell hideRevealViewAnimated:YES];
+            }
+        }];
+    }];
     
     bottomView.backgroundColor = cell.allowedDirection == CADRACSwippeableCellAllowedDirectionRight ? [UIColor redColor] : [UIColor blueColor];
     
