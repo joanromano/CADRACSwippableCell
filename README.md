@@ -3,6 +3,44 @@ CADRACSwippeableCell
 
 <p align="center"><img src="https://raw.githubusercontent.com/TopicSo/CADRACSwippeableCell/master/Screenshots/swipepreview.gif"/></p>
 
+##Usage
+
+To use it, your collection cell should subclass `CADRACSwippeableCell`.
+
+After that, you should provide a `revealView` to be shown beneath the cell and for the cell to be swippeable. After that, you can subscribe to `revealViewSignal` to get `:next` events when the reveal view is hidden/shown. You can also provide the allowed swipe direction with `allowedDirection`.
+
+```objc
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CADSampleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseIdentifier forIndexPath:indexPath];
+    
+    UIView *bottomView = [[UIView alloc] init];
+    bottomView.frame = (CGRect){
+        .size = CGSizeMake(CGRectGetWidth(collectionView.bounds)/2, CGRectGetHeight(cell.bounds))
+    };
+    
+    cell.allowedDirection = arc4random_uniform(2);
+    cell.revealView = bottomView;
+    cell.text = cell.allowedDirection == CADRACSwippeableCellAllowedDirectionRight ? @"Right" : @"Left";
+    [[cell.revealViewSignal filter:^BOOL(NSNumber *isRevealed) {
+        return [isRevealed boolValue];
+    }] subscribeNext:^(id x) {
+        [[self.collectionView visibleCells] enumerateObjectsUsingBlock:^(CADSampleCell *otherCell, NSUInteger idx, BOOL *stop) {
+            if (otherCell != cell)
+            {
+                [otherCell hideRevealViewAnimated:YES];
+            }
+        }];
+    }];
+    
+    bottomView.backgroundColor = cell.allowedDirection == CADRACSwippeableCellAllowedDirectionRight ? [UIColor redColor] : [UIColor blueColor];
+    
+    return cell;
+}
+```
+
+Refer to the header file [`CADRACSwippeableCell.h`](Source/CADRACSwippeableCell.h) for more documentation.
+
 
 ## MIT License
 Copyright (c) 2014 [Joan Romano](http://twitter.com/joanromano)
