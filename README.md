@@ -44,6 +44,30 @@ After that, you can subscribe to `revealViewSignal` to get `:next` events when t
 
 Refer to the header file [`CADRACSwippeableCell.h`](Source/CADRACSwippeableCell.h) for more documentation.
 
+###Install
+We strongly encourage you to use Cocoapods. It's simple, just add the dependency to your `Podfile`:
+
+```ruby
+platform :ios, '7.0'
+
+pod 'CADRACSwippeableCell'
+```
+
+And then running `pod install` will install the dependencies.
+
+Finally, import the header file wherever you want to use it:
+
+```objc
+#import "CADRACSwippeableCell.h"
+```
+
+And you are done!
+
+
+### Demo
+
+To check the demo, first install the dependencies with Cocoapods. After that, build and run the `Example` project in Xcode.
+
 
 ## MIT License
 Copyright (c) 2014 [Joan Romano](http://twitter.com/joanromano)
