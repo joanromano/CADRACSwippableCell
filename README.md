@@ -1,6 +1,8 @@
 CADRACSwippeableCell
 ====================
 
+<p align="center"><img src="https://raw.githubusercontent.com/TopicSo/CADRACSwippeableCell/master/Screenshots/swipepreview.gif"/></p>
+
 
 ## MIT License
 Copyright (c) 2014 [Joan Romano](http://twitter.com/joanromano)
