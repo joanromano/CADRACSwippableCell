@@ -22,7 +22,6 @@
 		8CF982A818FECB46001A3FAB /* CADRACSwippeableCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF982A718FECB46001A3FAB /* CADRACSwippeableCellTests.m */; };
 		8CF982B418FECCB1001A3FAB /* CADViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF982B218FECCB1001A3FAB /* CADViewController.m */; };
 		8CF982B518FECCB1001A3FAB /* CADViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CF982B318FECCB1001A3FAB /* CADViewController.xib */; };
-		8CF982B818FECE50001A3FAB /* CADRACSwippeableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF982B718FECE50001A3FAB /* CADRACSwippeableCell.m */; };
 		8CF982BB18FED1EA001A3FAB /* CADSampleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF982BA18FED1EA001A3FAB /* CADSampleCell.m */; };
 		8CF982BD18FED202001A3FAB /* CADSampleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CF982BC18FED202001A3FAB /* CADSampleCell.xib */; };
 /* End PBXBuildFile section */
@@ -59,8 +58,6 @@
 		8CF982B118FECCB1001A3FAB /* CADViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADViewController.h; sourceTree = "<group>"; };
 		8CF982B218FECCB1001A3FAB /* CADViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CADViewController.m; sourceTree = "<group>"; };
 		8CF982B318FECCB1001A3FAB /* CADViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CADViewController.xib; sourceTree = "<group>"; };
-		8CF982B618FECE50001A3FAB /* CADRACSwippeableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CADRACSwippeableCell.h; path = ../../Source/CADRACSwippeableCell.h; sourceTree = "<group>"; };
-		8CF982B718FECE50001A3FAB /* CADRACSwippeableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CADRACSwippeableCell.m; path = ../../Source/CADRACSwippeableCell.m; sourceTree = "<group>"; };
 		8CF982B918FED1EA001A3FAB /* CADSampleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADSampleCell.h; sourceTree = "<group>"; };
 		8CF982BA18FED1EA001A3FAB /* CADSampleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CADSampleCell.m; sourceTree = "<group>"; };
 		8CF982BC18FED202001A3FAB /* CADSampleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CADSampleCell.xib; sourceTree = "<group>"; };
@@ -131,8 +128,6 @@
 				8CF982B118FECCB1001A3FAB /* CADViewController.h */,
 				8CF982B218FECCB1001A3FAB /* CADViewController.m */,
 				8CF982B318FECCB1001A3FAB /* CADViewController.xib */,
-				8CF982B618FECE50001A3FAB /* CADRACSwippeableCell.h */,
-				8CF982B718FECE50001A3FAB /* CADRACSwippeableCell.m */,
 				8CF982B918FED1EA001A3FAB /* CADSampleCell.h */,
 				8CF982BA18FED1EA001A3FAB /* CADSampleCell.m */,
 				8CF982BC18FED202001A3FAB /* CADSampleCell.xib */,
@@ -308,7 +303,6 @@
 				8CF982BB18FED1EA001A3FAB /* CADSampleCell.m in Sources */,
 				8CF9829318FECB46001A3FAB /* CADAppDelegate.m in Sources */,
 				8CF982B418FECCB1001A3FAB /* CADViewController.m in Sources */,
-				8CF982B818FECE50001A3FAB /* CADRACSwippeableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
