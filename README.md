@@ -1,18 +1,22 @@
 CADRACSwippeableCell
 ====================
 
+Swippeable UICollectionViewCell subclass made with Reactive Cocoa.
+
+
 <p align="center"><img src="https://raw.githubusercontent.com/TopicSo/CADRACSwippeableCell/master/Screenshots/swipepreview.gif"/></p>
+
 
 ##Usage
 
-To use it, your collection cell should subclass `CADRACSwippeableCell`.
+To use it, your collection cell should subclass `CADRACSwippeableCell` and you should provide a `revealView` to be shown beneath the cell and for the cell to be swippeable. 
 
-After that, you should provide a `revealView` to be shown beneath the cell and for the cell to be swippeable. After that, you can subscribe to `revealViewSignal` to get `:next` events when the reveal view is hidden/shown. You can also provide the allowed swipe direction with `allowedDirection`.
+After that, you can subscribe to `revealViewSignal` to get `:next` events when the reveal view is hidden/shown. You can also provide the allowed swipe direction with `allowedDirection`.
 
 ```objc
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CADSampleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseIdentifier forIndexPath:indexPath];
+    CustomCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ReuseIdentifier" forIndexPath:indexPath];
     
     UIView *bottomView = [[UIView alloc] init];
     bottomView.frame = (CGRect){
@@ -21,11 +25,10 @@ After that, you should provide a `revealView` to be shown beneath the cell and f
     
     cell.allowedDirection = arc4random_uniform(2);
     cell.revealView = bottomView;
-    cell.text = cell.allowedDirection == CADRACSwippeableCellAllowedDirectionRight ? @"Right" : @"Left";
     [[cell.revealViewSignal filter:^BOOL(NSNumber *isRevealed) {
         return [isRevealed boolValue];
     }] subscribeNext:^(id x) {
-        [[self.collectionView visibleCells] enumerateObjectsUsingBlock:^(CADSampleCell *otherCell, NSUInteger idx, BOOL *stop) {
+        [[self.collectionView visibleCells] enumerateObjectsUsingBlock:^(CustomCollectionCell *otherCell, NSUInteger idx, BOOL *stop) {
             if (otherCell != cell)
             {
                 [otherCell hideRevealViewAnimated:YES];
