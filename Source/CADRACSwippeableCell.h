@@ -18,7 +18,7 @@ typedef NS_ENUM(NSUInteger, CADRACSwippeableCellAllowedDirection) {
 @interface CADRACSwippeableCell : UICollectionViewCell
 
 /** 
- Signal which sends @(YES) values each time the reveal view is shown and @(NO) values when it's hidden.
+ Signal which sends next: events with @(YES)/@(NO) values each time the reveal view is shown/hidden.
  */
 @property (nonatomic, strong, readonly) RACSignal *revealViewSignal;
 
