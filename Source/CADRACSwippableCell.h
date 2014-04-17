@@ -23,12 +23,12 @@ typedef NS_ENUM(NSUInteger, CADRACSwippableCellAllowedDirection) {
 @property (nonatomic, strong, readonly) RACSignal *revealViewSignal;
 
 /**
- The view beneath the cell that will be shown. You should provide this view if you want your cell to be swippeable.
+ The view beneath the cell that will be shown. You should provide this view if you want your cell to be swippable.
  */
 @property (nonatomic, strong) UIView *revealView;
 
 /**
- The allowed swipe direction. Defaults to CADRACSwippeableCellAllowedDirectionLeft.
+ The allowed swipe direction. Defaults to CADRACSwippableCellAllowedDirectionLeft.
  */
 @property (nonatomic) CADRACSwippableCellAllowedDirection allowedDirection;
 
