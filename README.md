@@ -36,13 +36,13 @@ After that, you can subscribe to `revealViewSignal` to get `:next` events when t
         }];
     }];
     
-    bottomView.backgroundColor = cell.allowedDirection == CADRACSwippeableCellAllowedDirectionRight ? [UIColor redColor] : [UIColor blueColor];
+    bottomView.backgroundColor = cell.allowedDirection == CADRACSwippableCellAllowedDirectionRight ? [UIColor redColor] : [UIColor blueColor];
     
     return cell;
 }
 ```
 
-Refer to the header file [`CADRACSwippeableCell.h`](Source/CADRACSwippeableCell.h) for more documentation.
+Refer to the header file [`CADRACSwippableCell.h`](Source/CADRACSwippableCell.h) for more documentation.
 
 ###Install
 We strongly encourage you to use Cocoapods. It's simple, just add the dependency to your `Podfile`:
@@ -50,7 +50,7 @@ We strongly encourage you to use Cocoapods. It's simple, just add the dependency
 ```ruby
 platform :ios, '7.0'
 
-pod 'CADRACSwippeableCell'
+pod 'CADRACSwippableCell'
 ```
 
 And then running `pod install` will install the dependencies.
@@ -58,7 +58,7 @@ And then running `pod install` will install the dependencies.
 Finally, import the header file wherever you want to use it:
 
 ```objc
-#import "CADRACSwippeableCell.h"
+#import "CADRACSwippableCell.h"
 ```
 
 And you are done!
