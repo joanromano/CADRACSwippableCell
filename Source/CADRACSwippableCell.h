@@ -1,6 +1,6 @@
 //
-//  CADRACSwippeableCell.h
-//  CADRACSwippeableCell
+//  CADRACSwippableCell.h
+//  CADRACSwippableCell
 //
 //  Created by Joan Romano on 18/02/14.
 //  Copyright (c) 2014 Crows And Dogs. All rights reserved.
@@ -10,12 +10,12 @@
 
 @class RACSignal;
 
-typedef NS_ENUM(NSUInteger, CADRACSwippeableCellAllowedDirection) {
-    CADRACSwippeableCellAllowedDirectionLeft,
-    CADRACSwippeableCellAllowedDirectionRight
+typedef NS_ENUM(NSUInteger, CADRACSwippableCellAllowedDirection) {
+    CADRACSwippableCellAllowedDirectionLeft,
+    CADRACSwippableCellAllowedDirectionRight
 };
 
-@interface CADRACSwippeableCell : UICollectionViewCell
+@interface CADRACSwippableCell : UICollectionViewCell
 
 /** 
  Signal which sends next: events with @(YES)/@(NO) values each time the reveal view is shown/hidden.
@@ -30,7 +30,7 @@ typedef NS_ENUM(NSUInteger, CADRACSwippeableCellAllowedDirection) {
 /**
  The allowed swipe direction. Defaults to CADRACSwippeableCellAllowedDirectionLeft.
  */
-@property (nonatomic) CADRACSwippeableCellAllowedDirection allowedDirection;
+@property (nonatomic) CADRACSwippableCellAllowedDirection allowedDirection;
 
 /**
  Explicitly hide the reveal view.

@@ -1,23 +1,23 @@
 //
-//  CADRACSwippeableCell.m
-//  CADRACSwippeableCell
+//  CADRACSwippableCell.m
+//  CADRACSwippableCell
 //
 //  Created by Joan Romano on 18/02/14.
 //  Copyright (c) 2014 Crows And Dogs. All rights reserved.
 //
 
-#import "CADRACSwippeableCell.h"
+#import "CADRACSwippableCell.h"
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-@interface CADRACSwippeableCell () <UIGestureRecognizerDelegate>
+@interface CADRACSwippableCell () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) RACSubject *revealViewSignal;
 @property (nonatomic, strong) UIView *contentSnapshotView;
 
 @end
 
-@implementation CADRACSwippeableCell
+@implementation CADRACSwippableCell
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -110,7 +110,7 @@
     [super layoutSubviews];
     
     self.revealView.frame = (CGRect){
-        .origin = CGPointMake(self.allowedDirection == CADRACSwippeableCellAllowedDirectionRight ? 0.0f : CGRectGetWidth(self.frame) - CGRectGetWidth(self.revealView.frame), 0.0f),
+        .origin = CGPointMake(self.allowedDirection == CADRACSwippableCellAllowedDirectionRight ? 0.0f : CGRectGetWidth(self.frame) - CGRectGetWidth(self.revealView.frame), 0.0f),
         .size = self.revealView.frame.size
     };
 }
@@ -124,7 +124,7 @@
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          self.contentSnapshotView.center = CGPointMake(
-                            self.allowedDirection == CADRACSwippeableCellAllowedDirectionRight ?
+                            self.allowedDirection == CADRACSwippableCellAllowedDirectionRight ?
                                CGRectGetWidth(self.frame)/2 + CGRectGetWidth(self.revealView.frame) :
                                CGRectGetWidth(self.frame)/2 - CGRectGetWidth(self.revealView.frame),
                              self.contentSnapshotView.center.y);
@@ -150,7 +150,7 @@
                                                delay:0.0f
                                              options:UIViewAnimationOptionCurveLinear
                                           animations:^{
-                                              self.contentSnapshotView.center = CGPointMake(self.allowedDirection == CADRACSwippeableCellAllowedDirectionRight ? self.center.x+2.0f : self.center.x-2.0f, self.contentSnapshotView.center.y);
+                                              self.contentSnapshotView.center = CGPointMake(self.allowedDirection == CADRACSwippableCellAllowedDirectionRight ? self.center.x+2.0f : self.center.x-2.0f, self.contentSnapshotView.center.y);
                                           } completion:^(BOOL finished) {
                                               [UIView animateWithDuration:animated ? 0.1 : 0.0
                                                                     delay:0.0f
@@ -174,11 +174,11 @@
     
     switch (self.allowedDirection)
     {
-        case CADRACSwippeableCellAllowedDirectionLeft:
+        case CADRACSwippableCellAllowedDirectionLeft:
             shouldShow = velocity.x < 0 && velocityIsBiggerThanOffset;
             break;
 
-        case CADRACSwippeableCellAllowedDirectionRight:
+        case CADRACSwippableCellAllowedDirectionRight:
             shouldShow = velocity.x > 0 && velocityIsBiggerThanOffset;
             break;
     }
@@ -193,11 +193,11 @@
     
     switch (self.allowedDirection)
     {
-        case CADRACSwippeableCellAllowedDirectionLeft:
+        case CADRACSwippableCellAllowedDirectionLeft:
             shouldHide = velocity.x > 0 && velocityIsBiggerThanOffset;
             break;
             
-        case CADRACSwippeableCellAllowedDirectionRight:
+        case CADRACSwippableCellAllowedDirectionRight:
             shouldHide = velocity.x < 0 && velocityIsBiggerThanOffset;
             break;
     }
@@ -211,11 +211,11 @@
     
     switch (self.allowedDirection)
     {
-        case CADRACSwippeableCellAllowedDirectionRight:
+        case CADRACSwippableCellAllowedDirectionRight:
             centerPoint.x = MAX(CGRectGetWidth(self.frame)/2, MIN(self.contentSnapshotView.center.x + translation.x,
                                                                   CGRectGetWidth(self.revealView.frame) + CGRectGetWidth(self.frame)/2));
             break;
-        case CADRACSwippeableCellAllowedDirectionLeft:
+        case CADRACSwippableCellAllowedDirectionLeft:
             centerPoint.x = MIN(CGRectGetWidth(self.frame)/2, MAX(self.contentSnapshotView.center.x + translation.x,
                                                                   CGRectGetWidth(self.frame)/2 - CGRectGetWidth(self.revealView.frame)));
             break;
