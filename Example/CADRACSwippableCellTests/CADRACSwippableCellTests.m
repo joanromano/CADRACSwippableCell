@@ -1,6 +1,6 @@
 //
-//  CADRACSwippeableCellTests.m
-//  CADRACSwippeableCellTests
+//  CADRACSwippableCellTests.m
+//  CADRACSwippableCellTests
 //
 //  Created by Joan Romano on 16/04/14.
 //  Copyright (c) 2014 Crows And Dogs. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface CADRACSwippeableCellTests : XCTestCase
+@interface CADRACSwippableCellTests : XCTestCase
 
 @end
 
-@implementation CADRACSwippeableCellTests
+@implementation CADRACSwippableCellTests
 
 - (void)setUp
 {
