@@ -61,8 +61,8 @@
     }];
     
     [beganOrChangedSignal subscribeNext:^(UIPanGestureRecognizer *panGesture) {
-        [self addSubview:self.revealView];
-        [self addSubview:self.contentSnapshotView];
+        [self.contentView addSubview:self.revealView];
+        [self.contentView addSubview:self.contentSnapshotView];
         
         [panGesture setTranslation:CGPointZero inView:self];
     }];
@@ -94,7 +94,7 @@
     }];
     
     [[[self rac_signalForSelector:@selector(updateConstraints)] filter:^BOOL(id value) {
-        return [self.contentSnapshotView isDescendantOfView:self];
+        return _contentSnapshotView != nil;
     }] subscribeNext:^(id x) {
         [self.contentSnapshotView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_contentSnapshotView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_contentSnapshotView)]];
         [self.contentSnapshotView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_contentSnapshotView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_contentSnapshotView)]];
