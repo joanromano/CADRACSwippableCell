@@ -47,7 +47,7 @@ static NSString *const kReuseIdentifier = @"ReuseIdentifier";
     
     cell.allowedDirection = arc4random_uniform(2);
     cell.revealView = bottomView;
-    cell.text = cell.allowedDirection == CADRACSwippeableCellAllowedDirectionRight ? @"Right" : @"Left";
+    cell.text = cell.allowedDirection == CADRACSwippableCellAllowedDirectionRight ? @"Right" : @"Left";
     [[cell.revealViewSignal filter:^BOOL(NSNumber *isRevealed) {
         return [isRevealed boolValue];
     }] subscribeNext:^(id x) {
@@ -59,7 +59,7 @@ static NSString *const kReuseIdentifier = @"ReuseIdentifier";
         }];
     }];
     
-    bottomView.backgroundColor = cell.allowedDirection == CADRACSwippeableCellAllowedDirectionRight ? [UIColor redColor] : [UIColor blueColor];
+    bottomView.backgroundColor = cell.allowedDirection == CADRACSwippableCellAllowedDirectionRight ? [UIColor redColor] : [UIColor blueColor];
     
     return cell;
 }

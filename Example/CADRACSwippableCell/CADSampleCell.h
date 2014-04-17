@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Crows And Dogs. All rights reserved.
 //
 
-#import "CADRACSwippeableCell.h"
+#import "CADRACSwippableCell.h"
 
-@interface CADSampleCell : CADRACSwippeableCell
+@interface CADSampleCell : CADRACSwippableCell
 
 @property (nonatomic, copy) NSString *text;
 
