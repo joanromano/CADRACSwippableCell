@@ -1,15 +1,15 @@
-CADRACSwippeableCell
+CADRACSwippableCell
 ====================
 
-Swippeable UICollectionViewCell subclass made with Reactive Cocoa.
+Swippable UICollectionViewCell subclass made with Reactive Cocoa.
 
 
-<p align="center"><img src="https://raw.githubusercontent.com/TopicSo/CADRACSwippeableCell/master/Screenshots/swipepreview.gif"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/TopicSo/CADRACSwippableCell/master/Screenshots/swipepreview.gif"/></p>
 
 
 ##Usage
 
-To use it, your collection cell should subclass `CADRACSwippeableCell` and you should provide a `revealView` to be shown beneath the cell and for the cell to be swippeable. 
+To use it, your collection cell should subclass `CADRACSwippableCell` and you should provide a `revealView` to be shown beneath the cell and for the cell to be swippable. 
 
 After that, you can subscribe to `revealViewSignal` to get `:next` events when the reveal view is hidden/shown. You can also provide the allowed swipe direction with `allowedDirection`.
 
