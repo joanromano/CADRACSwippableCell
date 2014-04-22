@@ -35,14 +35,14 @@ typedef NS_ENUM(NSUInteger, CADRACSwippableCellAllowedDirection) {
 /**
  Explicitly hide the reveal view.
  
- @param animated YES if we want the action to be animated, NO otherwise
+ @param animated YES if you want the action to be animated, NO otherwise
  */
 - (void)hideRevealViewAnimated:(BOOL)animated;
 
 /**
  Explicitly show the reveal view.
  
- @param animated YES if we want the action to be animated, NO otherwise
+ @param animated YES if you want the action to be animated, NO otherwise
  */
 - (void)showRevealViewAnimated:(BOOL)animated;
 
