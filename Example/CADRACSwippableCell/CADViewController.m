@@ -25,8 +25,7 @@ static NSString *const kReuseIdentifier = @"ReuseIdentifier";
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor redColor];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"CADSampleCell" bundle:nil] forCellWithReuseIdentifier:kReuseIdentifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass(CADSampleCell.class) bundle:nil] forCellWithReuseIdentifier:kReuseIdentifier];
 }
 
 #pragma mark - UICollectionView DataSource
