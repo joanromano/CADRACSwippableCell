@@ -8,6 +8,9 @@
 
 #import "CADRACSwippableCell.h"
 
+#import "UIColor+CADRACSwippableCellAdditions.h"
+#import "UIView+CADRACSwippableCellAdditions.h"
+
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface CADRACSwippableCell () <UIGestureRecognizerDelegate>
@@ -224,23 +227,6 @@
     return centerPoint;
 }
 
-- (UICollectionView *)superCollectionView
-{
-	UIView *superview = self.superview;
-    
-	while (superview != nil)
-    {
-		if ([superview isKindOfClass:[UICollectionView class]])
-        {
-			return (id)superview;
-		}
-        
-		superview = [superview superview];
-	}
-    
-	return nil;
-}
-
 #pragma mark - UIGestureRecognizer Delegate
 
 // Would be awesome to do this with RAC
@@ -262,7 +248,7 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
-    return otherGestureRecognizer != [self superCollectionView].panGestureRecognizer;
+    return otherGestureRecognizer != self.superCollectionView.panGestureRecognizer;
 }
 
 #pragma mark - Lazy
@@ -272,7 +258,7 @@
     if (!_contentSnapshotView)
     {
         _contentSnapshotView = [self snapshotViewAfterScreenUpdates:NO];
-        _contentSnapshotView.backgroundColor = self.backgroundColor;
+        _contentSnapshotView.backgroundColor = [UIColor firstNonClearBackgroundColorInHierarchyForView:self];
     }
     
     return _contentSnapshotView;
