@@ -163,6 +163,9 @@
                                                                }
                                                                completion:^(BOOL finished) {
                                                                    [(RACSubject *)self.revealViewSignal sendNext:@(NO)];
+                                                                   [self.contentSnapshotView removeFromSuperview];
+                                                                   self.contentSnapshotView = nil;
+                                                                   [self.revealView removeFromSuperview];
                                                                }];
                                           }];
                      }];
